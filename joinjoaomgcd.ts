@@ -2,7 +2,7 @@ import type {
   BaseOptions,
   MessageOptions,
   MessageOptionsWithIds,
-} from './type.ts';
+} from './types.ts';
 
 const BASE_URL = 'https://joinjoaomgcd.appspot.com/_ah/api';
 

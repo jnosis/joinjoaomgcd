@@ -1,2 +1,2 @@
-export type { MessageOptions, MessageOptionsWithIds } from './type.ts';
+export type { MessageOptions, MessageOptionsWithIds } from './types.ts';
 export { JoinJoaomgcd } from './joinjoaomgcd.ts';
