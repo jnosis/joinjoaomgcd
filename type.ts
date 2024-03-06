@@ -1,5 +1,6 @@
-export type MessageOptions = {
+export interface BaseOptions {
   deviceId: string;
+  deviceIds: string[];
   deviceNames?: string;
   text?: string;
   url?: string;
@@ -37,8 +38,7 @@ export type MessageOptions = {
   group?: string;
   sound?: string;
   actions?: string;
-};
+}
 
-export type MessageOptionsWithIds = {
-  deviceIds: string[];
-} & Omit<MessageOptions, 'deviceId'>;
+export type MessageOptions = Omit<BaseOptions, 'deviceIds'>;
+export type MessageOptionsWithIds = Omit<BaseOptions, 'deviceId'>;
