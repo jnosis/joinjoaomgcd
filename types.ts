@@ -1,4 +1,41 @@
-export interface BaseOptions {
+/** These fields are meant for notifications created using the Join API. */
+export interface NotificationFields {
+  /** If used, will always create a notification on the receiving device with
+   * this as the title and text as the notification’s text */
+  title?: string;
+  /** If a notification is created on the receiving device and this is set,
+   * then it’ll be used as the notification’s icon. If this image has
+   * transparency, it’ll also be used as the status bar icon is smallicon is
+   * not set. It’ll also be used to tint the notification with its dominating
+   * color */
+  icon?: string;
+  /** If a notification is created on the receiving device and this is set,
+   * then it’ll be used as the notification’s status bar icon */
+  smallicon?: string;
+  /** control how your notification is displayed: lower priority notifications
+   * are usually displayed lower in the notification list.
+   * Values from -2 (lowest priority) to 2 (highest priority). Default is 2. */
+  priority?: number;
+  /** if the notification is received on an Android device, the vibration
+   * pattern in this field will change the way the device vibrates with it.
+   * You can easily create a pattern by going
+   * {@link http://autoremotejoaomgcd.appspot.com/AutoRemoteNotification.html here}
+   * and generating the pattern in the Vibration Pattern field */
+  vibration?: string;
+  /** set to true to make the notification go away when you touch it */
+  dismissOnTouch?: boolean;
+  /** publicly available URL for an image to show up in the notification */
+  image?: string;
+  /** unique ID to group your notifications with */
+  group?: string;
+  /** publicly available URL for a sound to play with the notification */
+  sound?: string;
+  /** Set notification buttons with customized behaviour. More info
+   * {@link https://joaoapps.com/join/actions/#notifications here}. */
+  actions?: string;
+}
+
+export interface BaseOptions extends NotificationFields {
   /** The device ID or group ID of the device you want to send the message to.
    * It is mandatory that you either set this or the deviceIds parameter.
    * Possible groups are
@@ -81,43 +118,6 @@ export interface BaseOptions {
    * check the package name for an app by going to its Google Play page and
    * checking the end of the URL. */
   appPackage?: string;
-
-  /** Notification Fields
-   * These fields are meant for notifications created using the Join API. */
-
-  /** If used, will always create a notification on the receiving device with
-   * this as the title and text as the notification’s text */
-  title?: string;
-  /** If a notification is created on the receiving device and this is set,
-   * then it’ll be used as the notification’s icon. If this image has
-   * transparency, it’ll also be used as the status bar icon is smallicon is
-   * not set. It’ll also be used to tint the notification with its dominating
-   * color */
-  icon?: string;
-  /** If a notification is created on the receiving device and this is set,
-   * then it’ll be used as the notification’s status bar icon */
-  smallicon?: string;
-  /** control how your notification is displayed: lower priority notifications
-   * are usually displayed lower in the notification list.
-   * Values from -2 (lowest priority) to 2 (highest priority). Default is 2. */
-  priority?: number;
-  /** if the notification is received on an Android device, the vibration
-   * pattern in this field will change the way the device vibrates with it.
-   * You can easily create a pattern by going
-   * {@link http://autoremotejoaomgcd.appspot.com/AutoRemoteNotification.html here}
-   * and generating the pattern in the Vibration Pattern field */
-  vibration?: string;
-  /** set to true to make the notification go away when you touch it */
-  dismissOnTouch?: boolean;
-  /** publicly available URL for an image to show up in the notification */
-  image?: string;
-  /** unique ID to group your notifications with */
-  group?: string;
-  /** publicly available URL for a sound to play with the notification */
-  sound?: string;
-  /** Set notification buttons with customized behaviour. More info
-   * {@link https://joaoapps.com/join/actions/#notifications here}. */
-  actions?: string;
 }
 
 export type MessageOptions = Omit<BaseOptions, 'deviceIds'>;
