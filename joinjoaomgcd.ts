@@ -1,4 +1,8 @@
-import type { MessageOptions, MessageOptionsWithIds } from './type.ts';
+import type {
+  BaseOptions,
+  MessageOptions,
+  MessageOptionsWithIds,
+} from './type.ts';
 
 const BASE_URL = 'https://joinjoaomgcd.appspot.com/_ah/api';
 
@@ -22,8 +26,8 @@ export class JoinJoaomgcd {
     return await this.#sendMessage(options);
   }
 
-  async #sendMessage<Options>(options: Options) {
-    const queries = Object.keys(options!)
+  async #sendMessage<Options extends Partial<BaseOptions>>(options: Options) {
+    const queries = Object.keys(options)
       .map((key) => `${key}=${options[key as keyof Options]}`)
       .join('&');
     return await fetch(
