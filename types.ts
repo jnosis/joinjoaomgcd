@@ -39,12 +39,12 @@ export interface BaseOptions extends NotificationFields {
   /** The device ID or group ID of the device you want to send the message to.
    * It is mandatory that you either set this or the deviceIds parameter.
    * Possible groups are
-   *  group.all
-   *  group.android
-   *  group.windows10
-   *  group.phone
-   *  group.tablet
-   *  group.pc */
+   * - group.all
+   * - group.android
+   * - group.windows10
+   * - group.phone
+   * - group.tablet
+   * - group.pc */
   deviceId: string;
   /** a comma separated list of device IDs you want to send the push to.
    * It is mandatory that you either set this or the deviceId parameter */
@@ -103,10 +103,10 @@ export interface BaseOptions extends NotificationFields {
   /** set the corresponding volumes on your device */
   alarmVolume?: number;
   /** Set to
-   * 1 to allow all interruptions
-   * 2 to allow only priority interruptions
-   * 3 to not allow any interruptions
-   * 4 to only allow alarm related interruptions */
+   * 1. to allow all interruptions
+   * 2. to allow only priority interruptions
+   * 3. to not allow any interruptions
+   * 4. to only allow alarm related interruptions */
   interruptionFilter?: 1 | 2 | 3 | 4;
   /** Say some text out loud. */
   say?: string;
