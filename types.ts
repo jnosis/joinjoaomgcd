@@ -35,7 +35,7 @@ export interface NotificationFields {
   actions?: string;
 }
 
-/** Options for sending message */
+/** Options for sending push */
 export interface BaseOptions extends NotificationFields {
   /** The device ID or group ID of the device you want to send the message to.
    * It is mandatory that you either set this or the deviceIds parameter.
@@ -121,10 +121,10 @@ export interface BaseOptions extends NotificationFields {
   appPackage?: string;
 }
 
-/** Options for sending message with deviceId */
-export type MessageOptions = Omit<BaseOptions, 'deviceIds'>;
-/** Options for sending message with deviceIds */
-export type MessageOptionsWithIds = Omit<BaseOptions, 'deviceId'>;
+/** Options for sending push with deviceId */
+export type PushOptions = Omit<BaseOptions, 'deviceIds'>;
+/** Options for sending push with deviceIds */
+export type PushOptionsWithIds = Omit<BaseOptions, 'deviceId'>;
 
 export type DeviceInfo = {
   id: string;

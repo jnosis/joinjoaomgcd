@@ -2,10 +2,9 @@ import type {
   BaseOptions,
   DeviceInfo,
   JoinStatus,
-  MessageOptions,
-  MessageOptionsWithIds,
+  PushOptions,
+  PushOptionsWithIds,
 } from './types.ts';
-import {} from './types.ts';
 
 const BASE_URL = 'https://joinjoaomgcd.appspot.com/_ah/api';
 
@@ -20,7 +19,7 @@ export class JoinJoaomgcd {
    *
    * @returns The array of your devices infos
    */
-  async getDevices(): Promise<DeviceInfo[]> {
+  async listDevices(): Promise<DeviceInfo[]> {
     const response = await fetch(
       `${BASE_URL}/registration/v1/listDevices?apikey=${this.#apiKey}`,
     );
@@ -35,28 +34,26 @@ export class JoinJoaomgcd {
   }
 
   /**
-   * Send message to a specific device or group
+   * Send push to a specific device or group
    *
-   * @param options The options for send message with device id
+   * @param options The options for send push with device id
    * @returns The status of JoinJoaomgcd's response
    */
-  async sendMessage(options: MessageOptions): Promise<JoinStatus> {
-    return await this.#sendMessage(options);
+  async sendPush(options: PushOptions): Promise<JoinStatus> {
+    return await this.#sendPush(options);
   }
 
   /**
-   * Send message to specific devices
+   * Send push to specific devices
    *
-   * @param options The options for send message with device ids
+   * @param options The options for send push with device ids
    * @returns The status of JoinJoaomgcd's response
    */
-  async sendMessageWithIds(
-    options: MessageOptionsWithIds,
-  ): Promise<JoinStatus> {
-    return await this.#sendMessage(options);
+  async sendPushWithIds(options: PushOptionsWithIds): Promise<JoinStatus> {
+    return await this.#sendPush(options);
   }
 
-  async #sendMessage<Options extends Partial<BaseOptions>>(options: Options) {
+  async #sendPush<Options extends Partial<BaseOptions>>(options: Options) {
     const queries = Object.keys(options)
       .map((key) => `${key}=${options[key as keyof Options]}`)
       .join('&');

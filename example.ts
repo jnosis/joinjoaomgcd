@@ -6,23 +6,23 @@ const url = Deno.env.get('URL')!;
 
 const client = new JoinJoaomgcd(apiKey);
 
-const devices = await client.getDevices();
+const devices = await client.listDevices();
 
-const send = await client.sendMessage({
+const send = await client.sendPush({
   deviceId,
   title: 'send',
   text: 'test',
   url,
 });
 
-const sendAll = await client.sendMessage({
+const sendAll = await client.sendPush({
   deviceId: 'group.all',
   title: 'all',
   text: 'test',
   url,
 });
 
-const sendIds = await client.sendMessageWithIds({
+const sendIds = await client.sendPushWithIds({
   deviceIds: (devices as { deviceId: string }[]).map((device) =>
     device.deviceId
   ),
