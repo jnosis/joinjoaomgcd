@@ -126,6 +126,7 @@ export type PushOptions = Omit<BaseOptions, 'deviceIds'>;
 /** Options for sending push with deviceIds */
 export type PushOptionsWithIds = Omit<BaseOptions, 'deviceId'>;
 
+/** Device information connected to JoinJoaomgcd */
 export type DeviceInfo = {
   id: string;
   regId: string;
@@ -139,6 +140,7 @@ export type DeviceInfo = {
   hasTasker?: boolean;
 };
 
+/** The success status in response to Join API call */
 export type JoinStatus = {
   success: boolean;
   errorMessage?: string;
