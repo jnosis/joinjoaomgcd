@@ -129,6 +129,7 @@ export type PushOptionsWithIds = Omit<BaseOptions, 'deviceId'>;
 export type DeviceInfo = {
   id: string;
   regId: string;
+  [regId: `regId${number}`]: string;
   userAccount: string;
   deviceId: string;
   deviceName: string;
