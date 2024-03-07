@@ -64,7 +64,7 @@ export class JoinJoaomgcd {
 
   async #sendPush<Options extends Partial<BaseOptions>>(options: Options) {
     const queries = Object.keys(options)
-      .map((key) => `${key}=${options[key as keyof Options]}`)
+      .map((key) => `${key}=${encodeURI(`${options[key as keyof Options]}`)}`)
       .join('&');
     const response = await fetch(
       `${BASE_URL}/messaging/v1/sendPush?apikey=${this.#apiKey}&${queries}`,
