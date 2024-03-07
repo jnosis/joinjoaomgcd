@@ -33,3 +33,5 @@ const sendIds = await client.sendMessageWithIds({
 ```
 
 ## License
+
+[MIT](./LICENSE.md)
