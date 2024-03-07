@@ -141,6 +141,6 @@ export type DeviceInfo = {
 
 export type JoinStatus = {
   success: boolean;
-  errorMessage: string;
+  errorMessage?: string;
   userAuthError: boolean;
 };
