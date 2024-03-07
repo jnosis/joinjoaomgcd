@@ -137,3 +137,9 @@ export type DeviceInfo = {
   model?: string;
   hasTasker?: boolean;
 };
+
+export type JoinStatus = {
+  success: boolean;
+  errorMessage: string;
+  userAuthError: boolean;
+};

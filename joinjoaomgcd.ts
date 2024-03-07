@@ -1,9 +1,11 @@
 import type {
   BaseOptions,
+  DeviceInfo,
+  JoinStatus,
   MessageOptions,
   MessageOptionsWithIds,
 } from './types.ts';
-import { DeviceInfo } from './types.ts';
+import {} from './types.ts';
 
 const BASE_URL = 'https://joinjoaomgcd.appspot.com/_ah/api';
 
@@ -27,11 +29,13 @@ export class JoinJoaomgcd {
     throw new Error(devices.errorMessage || 'Unknown Error');
   }
 
-  async sendMessage(options: MessageOptions) {
+  async sendMessage(options: MessageOptions): Promise<JoinStatus> {
     return await this.#sendMessage(options);
   }
 
-  async sendMessageWithIds(options: MessageOptionsWithIds) {
+  async sendMessageWithIds(
+    options: MessageOptionsWithIds,
+  ): Promise<JoinStatus> {
     return await this.#sendMessage(options);
   }
 
@@ -39,8 +43,16 @@ export class JoinJoaomgcd {
     const queries = Object.keys(options)
       .map((key) => `${key}=${options[key as keyof Options]}`)
       .join('&');
-    return await fetch(
+    const response = await fetch(
       `${BASE_URL}/messaging/v1/sendPush?apikey=${this.#apiKey}&${queries}`,
     );
+
+    const status = await response.json();
+
+    if (status.success) {
+      return status;
+    }
+
+    throw status;
   }
 }
