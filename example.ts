@@ -31,6 +31,6 @@ const sendIds = await client.sendMessageWithIds({
 });
 
 console.log(devices);
-console.log(await send.json());
-console.log(await sendAll.json());
-console.log(await sendIds.json());
+console.log(send);
+console.log(sendAll);
+console.log(sendIds);
