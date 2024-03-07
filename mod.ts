@@ -1,5 +1,7 @@
 export type {
   BaseOptions,
+  DeviceInfo,
+  JoinStatus,
   NotificationFields,
   PushOptions,
   PushOptionsWithIds,
