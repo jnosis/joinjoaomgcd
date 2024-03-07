@@ -9,7 +9,7 @@ JavaScript.
 ```ts
 const client = new JoinJoaomgcd(YOUR_API_KEY);
 
-const list = await client.getDeviceList();
+const devices = await client.getDevices();
 
 const send = await client.sendMessage({
   deviceId: SPECIFIC_DEVICE_ID,
@@ -22,8 +22,6 @@ const sendAll = await client.sendMessage({
   title: 'all',
   text: 'test',
 });
-
-const devices = (await list.json()).records;
 
 const sendIds = await client.sendMessageWithIds({
   deviceIds: devices.map((device) => device.deviceId),

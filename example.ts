@@ -6,7 +6,7 @@ const url = Deno.env.get('URL')!;
 
 const client = new JoinJoaomgcd(apiKey);
 
-const list = await client.getDeviceList();
+const devices = await client.getDevices();
 
 const send = await client.sendMessage({
   deviceId,
@@ -21,8 +21,6 @@ const sendAll = await client.sendMessage({
   text: 'test',
   url,
 });
-
-const devices = (await list.json()).records;
 
 const sendIds = await client.sendMessageWithIds({
   deviceIds: (devices as { deviceId: string }[]).map((device) =>
