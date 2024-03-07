@@ -125,3 +125,15 @@ export interface BaseOptions extends NotificationFields {
 export type MessageOptions = Omit<BaseOptions, 'deviceIds'>;
 /** Options for sending message with deviceIds */
 export type MessageOptionsWithIds = Omit<BaseOptions, 'deviceId'>;
+
+export type DeviceInfo = {
+  id: string;
+  regId: string;
+  userAccount: string;
+  deviceId: string;
+  deviceName: string;
+  deviceType: number;
+  apiLevel: number;
+  model?: string;
+  hasTasker?: boolean;
+};
