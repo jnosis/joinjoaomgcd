@@ -8,8 +8,17 @@ import type {
 
 const BASE_URL = 'https://joinjoaomgcd.appspot.com/_ah/api';
 
+/**
+ * A class for providing convenient access to the JoinJoaomgcd API
+ */
 export class JoinJoaomgcd {
+  /** The api key to connect your account */
   #apiKey: string;
+  /**
+   * Create a new joinJoaomgcd client with the given api key
+   *
+   * @param apiKey The api key to connect your account
+   */
   constructor(apiKey: string) {
     this.#apiKey = apiKey;
   }
@@ -37,7 +46,7 @@ export class JoinJoaomgcd {
    * Send push to a specific device or group
    *
    * @param options The options for send push with device id
-   * @returns The status of JoinJoaomgcd's response
+   * @returns The status of JoinJoaomgcd's response status
    */
   async sendPush(options: PushOptions): Promise<JoinStatus> {
     return await this.#sendPush(options);
@@ -47,7 +56,7 @@ export class JoinJoaomgcd {
    * Send push to specific devices
    *
    * @param options The options for send push with device ids
-   * @returns The status of JoinJoaomgcd's response
+   * @returns The status of JoinJoaomgcd's response status
    */
   async sendPushWithIds(options: PushOptionsWithIds): Promise<JoinStatus> {
     return await this.#sendPush(options);
