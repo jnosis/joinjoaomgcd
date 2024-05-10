@@ -1,5 +1,8 @@
 # joinjoaomgcd
 
+[![JSR](https://jsr.io/badges/@unface/joinjoaomgcd)](https://jsr.io/@unface/joinjoaomgcd)
+[![JSR Score](https://jsr.io/badges/@unface/joinjoaomgcd/score)](https://jsr.io/@unface/joinjoaomgcd/score)
+
 This library provides convenient access to the
 [JoinJoaomgcd](https://joaoapps.com/join/) REST API from TypeScript or
 JavaScript.
