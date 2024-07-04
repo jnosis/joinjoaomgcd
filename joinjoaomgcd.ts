@@ -76,6 +76,6 @@ export class JoinJoaomgcd {
       return status;
     }
 
-    throw status;
+    throw new Error(status.errorMessage || 'Unknown Error');
   }
 }
