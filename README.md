@@ -2,6 +2,7 @@
 
 [![JSR](https://jsr.io/badges/@unface/joinjoaomgcd)](https://jsr.io/@unface/joinjoaomgcd)
 [![JSR Score](https://jsr.io/badges/@unface/joinjoaomgcd/score)](https://jsr.io/@unface/joinjoaomgcd/score)
+[![codecov](https://codecov.io/github/jnosis/joinjoaomgcd/graph/badge.svg?token=OA6OQQGIRM)](https://codecov.io/github/jnosis/joinjoaomgcd)
 
 This library provides convenient access to the
 [JoinJoaomgcd](https://joaoapps.com/join/) REST API from TypeScript or
