@@ -68,10 +68,10 @@ describe('JoinJoaomgcd', () => {
   });
 
   describe('sendPushWithIds', () => {
-    it('throws authenticated error when api key invalid', () => {
+    it('throws authenticated error when api key invalid', async () => {
       const client = new JoinJoaomgcd(apiKey + 'a');
 
-      assertRejects(
+      await assertRejects(
         async () =>
           await client.sendPushWithIds({
             deviceIds,
@@ -83,10 +83,10 @@ describe('JoinJoaomgcd', () => {
       );
     });
 
-    it('throws error when device ids are invalid', () => {
+    it('throws error when device ids are invalid', async () => {
       const client = new JoinJoaomgcd(apiKey);
 
-      assertRejects(
+      await assertRejects(
         async () =>
           await client.sendPushWithIds({
             deviceIds: deviceIds.map((id) => id + 'a'),
