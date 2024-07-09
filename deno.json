@@ -9,5 +9,14 @@
     "@std/assert": "jsr:@std/assert@1.0.0",
     "@std/testing": "jsr:@std/testing@1.0.0-rc.2"
   },
-  "lock": false
+  "lock": false,
+  "tasks": {
+    "example": "deno run --allow-net --allow-env --env=.env ./example.ts",
+    "test": "deno test --allow-net --allow-env --env=.env --no-check --quiet --watch .",
+    "test:detail": "deno test --allow-net --allow-env --env=.env --no-check --watch .",
+    "test:coverage": "deno test --clean --coverage=./coverage --allow-net --allow-env --env=.env --no-check --quiet",
+    "cov": "deno coverage",
+    "cov:detailed": "deno task cov --detailed",
+    "cov:gen": "deno task cov --lcov --output=cov.lcov"
+  }
 }
